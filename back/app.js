@@ -24,7 +24,7 @@ let b;
 app.post("/storedata", (req, res) => {
     const { firstName, lastName, email, password } = req.body;
     console.log(req.body);
-    console.log(firstName);
+
     pool.query(
         "INSERT INTO filedata (firstname, lastname, email,password) VALUES ($1, $2, $3,$4)",
         [firstName, lastName, email, password],

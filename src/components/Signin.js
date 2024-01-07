@@ -29,11 +29,12 @@ function Signin() {
 
             const data = await response.json();
             console.log(data);
+
             if (response.ok) {
                 navigate("/wel");
-                console.log("Data successfully sent to the backend");
+                // console.log("Data successfully sent to the backend");
             } else {
-                console.error("Failed to send data to the backend");
+                third(data.message);
             }
         } catch (error) {
             console.error("Error:", error);
@@ -43,9 +44,28 @@ function Signin() {
     return (
         <div>
             <form onSubmit={sub}>
-                <input type="text" onChange={first} />
-                <input type="password" onChange={second} />
-                <button type="submit">submit</button>
+                <div className="form-group">
+                    <label htmlFor="firstInput">Username</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="firstInput"
+                        onChange={first}
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="secondInput">Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="secondInput"
+                        onChange={second}
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                    Submit
+                </button>
+                <span>{set3}</span>
             </form>
         </div>
     );
